@@ -42,12 +42,12 @@ endif()
 include(GNUInstallDirs)
 
 # Determine if mbed TLS is being built as a subproject using add_subdirectory()
-if(NOT DEFINED MBEDTLS_AS_SUBPROJECT)
-  set(MBEDTLS_AS_SUBPROJECT ON)
-  if(CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
-    set(MBEDTLS_AS_SUBPROJECT OFF)
-  endif()
-endif()
+# if(NOT DEFINED MBEDTLS_AS_SUBPROJECT)
+#   set(MBEDTLS_AS_SUBPROJECT ON)
+#   if(CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
+#     set(MBEDTLS_AS_SUBPROJECT OFF)
+#   endif()
+# endif()
 
 # Set the project root directory.
 set(MBEDTLS_DIR ${CMAKE_CURRENT_SOURCE_DIR})
