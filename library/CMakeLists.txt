@@ -1,7 +1,7 @@
 option(USE_STATIC_MBEDTLS_LIBRARY "Build mbed TLS static library." ON)
 option(USE_SHARED_MBEDTLS_LIBRARY "Build mbed TLS shared library." OFF)
 option(LINK_WITH_PTHREAD "Explicitly link mbed TLS library to pthread." OFF)
-option(LINK_WITH_TRUSTED_STORAGE "Explicitly link mbed TLS library to trusted_storage." OFF)
+option(LINK_WITH_TRUSTED_STORAGE "Explicitly link mbed TLS library to trusted_storage." ON)
 
 # Set the project root directory if it's not already defined, as may happen if
 # the library folder is included directly by a parent project, without
@@ -312,7 +312,7 @@ endforeach(target)
 
 set(lib_target "${MBEDTLS_TARGET_PREFIX}lib")
 
-add_custom_target(${lib_target} DEPENDS ${mbedcrypto_target} ${mbedx509_target} ${mbedtls_target})
+# add_custom_target(${lib_target} DEPENDS ${mbedcrypto_target} ${mbedx509_target} ${mbedtls_target})
 if(USE_STATIC_MBEDTLS_LIBRARY AND USE_SHARED_MBEDTLS_LIBRARY)
     add_dependencies(${lib_target} ${mbedcrypto_static_target} ${mbedx509_static_target} ${mbedtls_static_target})
 endif()
